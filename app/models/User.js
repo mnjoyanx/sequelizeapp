@@ -4,6 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: {
         type: DataTypes.STRING,
+        set(val) {
+          this.setDataValue("name", val.toUpperCase());
+        },
+
+        get() {
+          return this.getDataValue("name") + "!";
+        },
       },
 
       email: {
@@ -21,10 +28,6 @@ module.exports = (sequelize, DataTypes) => {
       updatedAt: false,
     }
   );
-
-  sequelize.sync().then(() => {
-    console.log("table created");
-  });
 
   return User;
 };

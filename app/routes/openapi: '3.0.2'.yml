@@ -1,0 +1,90 @@
+openapi: '3.0.2'
+info:
+  title: API Title
+  version: '1.0'
+servers:
+  - url: https://api.server.test/v1
+
+
+paths:
+
+  /users:
+    get:
+      description: get all users
+      responses:
+        '200':
+          description: OK
+      tags: 
+        - "users"
+
+    post:
+      description: helloo
+      responses:
+        '200':
+          description: OK
+      tags:
+        - "users"
+
+    put:
+      description: "edit user"
+      responses:
+        '200':
+          description: OK
+      tags:
+        - "users"
+
+
+  
+
+    delete:
+      description: Delete user
+      responses:
+        '200':
+          description: OK
+      tags:
+        - "users"
+          
+  /products:
+    get:
+      description: Get all products 
+      responses:
+        '200':
+          description: OK
+      tags:
+         - "products"
+
+
+components:
+  schemas:
+    Products:
+      type: object
+      required:
+        - "name"
+      properties:
+        id:
+          type: integer
+          description: Id of the product
+        name:
+          type: string
+          description: Product name description
+          
+
+    Users:
+      type: "object"
+      required:
+          - id
+          - email
+      properties:
+          id:
+           type: string
+           description: id of the user
+          email:
+           type: string
+           format: email
+          gender:
+           type: string
+      example:
+           id: 1
+           email: test@gmail.com
+           gender: female
+ 
